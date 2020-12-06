@@ -23,7 +23,7 @@ public class User {
     }
 
     public String getSurname(){
-        return surname
+        return surname;
     }
 
     public int getAge(){
