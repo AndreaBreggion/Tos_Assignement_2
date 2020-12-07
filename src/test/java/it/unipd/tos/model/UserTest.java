@@ -27,4 +27,7 @@ public class UserTest {
     public void getAgeTest(){
         Assert.assertEquals(43,user.getAge());
     }
+    public void isMinorenneTest(){
+        Assert.assertFalse(user.isMinorenne());
+    }
 }
