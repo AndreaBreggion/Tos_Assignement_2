@@ -1,4 +1,4 @@
-package it.unipd.tos.business.exceptions;
+package it.unipd.tos.business.exception;
 
 import org.junit.Assert;
 import org.junit.Test;
