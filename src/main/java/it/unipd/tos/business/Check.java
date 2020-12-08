@@ -26,6 +26,9 @@ public class Check implements TakeAwayBill{
                 total += m.getPrice();
             }
         }
+        if(total>=50){
+            total-=(total/10);
+        }
         return total;
     }
 }

@@ -34,4 +34,9 @@ public class CheckTest {
         order.add(new MenuItem("Juice", MenuItem.types.Bevanda,7.3));
         Assert.assertEquals(9.6,check.getOrderPrice(order,user),0.0);
     }
+    @Test
+    public void orderItemsDiscount() throws TakeAwayBillException{
+        order.add(new MenuItem("Juice", MenuItem.types.Bevanda,50));
+        Assert.assertEquals(45,check.getOrderPrice(order,user),0.0);
+    }
 }
