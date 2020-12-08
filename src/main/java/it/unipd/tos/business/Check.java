@@ -29,6 +29,9 @@ public class Check implements TakeAwayBill{
         if(total>=50){
             total-=(total/10);
         }
+        if(total<10){
+            total+=0.50;
+        }
         return total;
     }
 }
