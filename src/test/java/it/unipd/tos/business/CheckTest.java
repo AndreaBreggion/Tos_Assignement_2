@@ -30,18 +30,29 @@ public class CheckTest {
     }
     @Test
     public void getOrderPriceTest() throws TakeAwayBillException {
-        order.add(new MenuItem("Juice", MenuItem.types.Bevanda,2.3));
-        order.add(new MenuItem("Juice", MenuItem.types.Bevanda,7.3));
-        Assert.assertEquals(9.6,check.getOrderPrice(order,user),0.0);
+        order.add(new MenuItem("Juice", MenuItem.types.Bevanda,2.0));
+        order.add(new MenuItem("Juice", MenuItem.types.Bevanda,2.0));
+        order.add(new MenuItem("Juice", MenuItem.types.Bevanda,7.0));
+        Assert.assertEquals(11.0,check.getOrderPrice(order,user),0.0);
     }
     @Test
     public void orderItemsDiscount() throws TakeAwayBillException{
-        order.add(new MenuItem("Juice", MenuItem.types.Bevanda,50));
+        order.add(new MenuItem("Ice Cream", MenuItem.types.Gelato,50));
         Assert.assertEquals(45,check.getOrderPrice(order,user),0.0);
     }
     @Test
     public void commissionTest() throws TakeAwayBillException{
         order.add(new MenuItem("Juice", MenuItem.types.Bevanda,4));
         Assert.assertEquals(4.5,check.getOrderPrice(order,user),0.0);
+    }
+    @Test
+    public void numberOrderDiscount() throws TakeAwayBillException{
+        order.add(new MenuItem("Ice Cream", MenuItem.types.Gelato,1));
+        order.add(new MenuItem("Ice Cream", MenuItem.types.Gelato,2));
+        order.add(new MenuItem("Ice Cream", MenuItem.types.Gelato,4));
+        order.add(new MenuItem("Ice Cream", MenuItem.types.Gelato,6));
+        order.add(new MenuItem("Ice Cream", MenuItem.types.Gelato,1));
+        order.add(new MenuItem("Ice Cream", MenuItem.types.Gelato,2));
+        Assert.assertEquals(15.0,check.getOrderPrice(order,user),0.0);
     }
 }
