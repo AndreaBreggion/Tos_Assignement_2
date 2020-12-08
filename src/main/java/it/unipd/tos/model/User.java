@@ -34,4 +34,6 @@ public class User {
         return age<18;
     }
 
+    public boolean equals  (@org.jetbrains.annotations.NotNull User u){ return u.getId()==id; }
+
 }
